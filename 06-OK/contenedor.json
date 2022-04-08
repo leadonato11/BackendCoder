@@ -1,0 +1,22 @@
+[
+	{
+		"id": 1,
+		"nombre": "Buzo",
+		"precio": 798.36
+	},
+  {
+		"id": 2,
+		"nombre": "Remera",
+		"precio": 58.65
+	},
+  {
+		"id": 3,
+		"nombre": "Campera",
+		"precio": 700.80
+	},
+  {
+		"id": 4,
+		"nombre": "Pantalon",
+		"precio": 745.15
+	}
+]
