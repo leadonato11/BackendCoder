@@ -23,8 +23,7 @@ class Articles {
   async save(obj) {
     const articles = await this.readFile();
     console.log(typeof articles);
-    let id;
-
+    
     const saveObject = {
       id: uuidv4(),
       ...obj, // incluye todos los campos del objeto

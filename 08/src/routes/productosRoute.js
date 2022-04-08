@@ -1,15 +1,21 @@
 const express = require("express");
-// const { myArticlesController } = require("../controller/articles");
+const { controller } = require("../controller/articles");
 const router = express.Router();
 
-router.get('/', (request, response) => {
+router.get('/', async (request, response) => {
+  const articles = await controller.getAll()
+  console.log(articles)
   response.json({
+    data: articles,
     message: "PETICIÓN GET A LOS PRODUCTOS DISPONIBLES",
   });
 });
 
-router.get("/:id", (request, response) => {
+router.get("/:id", async (request, response) => {
+  const articles = await controller.getById(id)
+
   response.json({
+    data: articles,
     message: "PETICIÓN GET PARA UN PRODUCTO POR ID",
   });
 });
