@@ -1,4 +1,4 @@
-const { v4: uuidv4 } = require('uuid');
+const { v4: uuidv4 } = require("uuid");
 const fs = require("fs");
 
 class Articles {
@@ -22,8 +22,7 @@ class Articles {
   // Number - Recibe un objeto, lo guarda en el archivo, devuelve el id asignado.
   async save(obj) {
     const articles = await this.readFile();
-    console.log(typeof articles);
-    
+
     const saveObject = {
       id: uuidv4(),
       ...obj, // incluye todos los campos del objeto
@@ -70,9 +69,23 @@ class Articles {
   }
 
   // Object - Actualiza un producto.
-  // async update() {
-    
-  // }
+  async update(id, newArticle) {
+    const articles = await this.getAll();
+
+    const index = articles.findIndex(article => article.id === id);
+
+    if (index < 0) {
+      throw new Error("No existe tal producto");
+    }
+
+    const articleUpdate = {
+      id,
+      ...newArticle,
+    };
+
+    articles.splice(index, 1, articleUpdate);
+    return articles[index]
+  }
 }
 
 const myArticlesController = new Articles("contenedor");
