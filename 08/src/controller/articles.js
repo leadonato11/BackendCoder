@@ -70,7 +70,8 @@ class Articles {
 
   // Object - Actualiza un producto.
   async update(id, newArticle) {
-    const articles = await this.getAll();
+
+    const articles = await this.readFile();
 
     const index = articles.findIndex(article => article.id === id);
 
@@ -84,7 +85,9 @@ class Articles {
     };
 
     articles.splice(index, 1, articleUpdate);
-    return articles[index]
+    await this.writeFile(articles)
+    const articleEdited = await this.readFile()
+    return articleEdited[index]
   }
 }
 
