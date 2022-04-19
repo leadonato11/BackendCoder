@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include ('../partials/head', {pageTitle}) %>
+</head>
+
+<body>
+  <%- include ('../partials/header') %>
+    <form method="POST" action="/api/productos">
+      <div class="mb-3">
+        <label for="product" class="form-label">Producto</label>
+        <input type="text" name="nombre" class="form-control" id="product" aria-describedby="productHelp" placeholder="Producto...">
+      </div>
+      <div class="mb-3">
+        <label for="price" class="form-label">Precio</label>
+        <input type="number" name="price" step=".01" class="form-control" id="price">
+      </div>
+      <div class="mb-3">
+        <label for="thumbnail" class="form-label">Foto URL</label>
+        <input type="text" name="thumbnail" class="form-control" id="thumbnail">
+      </div>
+      <button type="submit" class="btn btn-primary">Cargar producto</button>
+    </form>
+    <a type="button" class="btn btn-secondary" href="/productos">Ver productos cargados</a>
+
+</body>
+
+</html>
