@@ -7,7 +7,33 @@
 
 <body>
   <%- include ('../partials/header') %>
-  Listado de productos
+    Listado de productos
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Titulo</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Foto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% products.forEach(product=> { %>
+          <tr>
+            <td>
+              <%= product.nombre %>
+            </td>
+            <td>$<%= product.precio %>
+            </td>
+            <td><img src="<%= product.thumbnail %>" alt="Pic of the product" srcset=""></td>
+          </tr>
+          <% }) %>
+            <% if (products.length <=0) { %>
+              <tr>
+                <td class="text-center" colspan="3"> No hay productos </td>
+              </tr>
+              <% } %>
+      </tbody>
+    </table>
 
 </body>
 

@@ -1,0 +1,38 @@
+[
+	{
+		"id": "a6b49e5f-876f-4ad5-9a84-aa5671213aa4",
+		"nombre": "Buzo",
+		"precio": 798.36,
+		"thumbnail": "https://picsum.photos/400"
+	},
+	{
+		"id": "942a4ceb-02c9-4015-8b04-44b6215add29",
+		"nombre": "Remera",
+		"precio": 58.65,
+		"thumbnail": "https://picsum.photos/400"
+	},
+	{
+		"id": "b5dc9f0d-9216-489e-848b-14de5611daa9",
+		"nombre": "Campera",
+		"precio": 700.8,
+		"thumbnail": "https://picsum.photos/400"
+	},
+	{
+		"id": "48c7e9ae-b082-4a46-90de-ff7033807fd5",
+		"nombre": "Pantalon",
+		"precio": 745.15,
+		"thumbnail": "https://picsum.photos/400"
+	},
+	{
+		"id": "c2394e82-a5eb-4b1e-8280-323814078a95",
+		"nombre": "Mameluco",
+		"precio": 400,
+		"thumbnail": "https://picsum.photos/400"
+	},
+	{
+		"id": "34966d0f-14dc-48e8-8c27-361832e25b9c",
+		"nombre": "Zapato",
+		"precio": 795.45,
+		"thumbnail": "https://cdn2.iconfinder.com/data/icons/summer-179/128/_shoes_sneakers_summer_converse-512.png"
+	}
+]

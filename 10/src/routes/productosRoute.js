@@ -33,7 +33,6 @@ router.get("/:id", async (request, response) => {
 // POST '/api/productos' -> recibe y agrega un producto, y lo devuelve con su id asignado.
 
 router.post("/", async (request, response) => {
-  console.log(request.body)
   const { nombre, precio, thumbnail } = request.body;
 
   if (!nombre || !precio || !thumbnail) {
@@ -44,13 +43,13 @@ router.post("/", async (request, response) => {
 
   const productPost = {
     nombre,
-    precio,
+    precio: Number(precio),
     thumbnail,
   };
 
   console.log(productPost);
 
-  if (isNaN(precio)) {
+  if (isNaN(precio) && precio >= 0) {
     return response.status(400).json({
       msg: "Precio debe ser valor numérico",
     });
@@ -103,7 +102,6 @@ router.put("/:id", async (request, response) => {
     message: "PETICIÓN PUT PARA ACTUALIZAR UN PRODUCTO",
   });
 });
-
 
 // DELETE '/api/productos/:id' -> elimina un producto según su id.
 
