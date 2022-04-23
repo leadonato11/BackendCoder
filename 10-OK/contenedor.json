@@ -34,5 +34,11 @@
 		"nombre": "Zapato",
 		"precio": 795.45,
 		"thumbnail": "https://cdn2.iconfinder.com/data/icons/summer-179/128/_shoes_sneakers_summer_converse-512.png"
+	},
+	{
+		"id": "7656a31b-b0bb-4267-a39c-3f6cc06fcc55",
+		"nombre": "Babucha",
+		"precio": 784,
+		"thumbnail": "www.campera.com"
 	}
 ]
