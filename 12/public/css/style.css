@@ -1,22 +1,117 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  background-color: rgb(192, 115, 20);
+  background-color: #112B3C;
 }
 
-.contenedor {
-  margin: 5% 30%;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: auto;
 }
 
-.formHeader {
-  margin-bottom: 50px;
+.myRightCtn {
+  background-color: #EFEFEF;
+  border-radius: 25px;
+  height: 100%;
+  width: 100%;
+  padding: 25px;
+  color: black;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+.myLeftCtn {
+  display: flex;
+  justify-content: center;
+  background-color: #EFEFEF;
+  border-radius: 25px;
+  height: 100%;
+  padding: 25px;
+}
+
+.myLeftCtn header {
+  color: #205375;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.row {
+  height: 100%;
+  margin-top: 50px;
+}
+
+.myRightCtn header {
+  color: #205375;
+  font-size: 24px;
+}
+
+.box {
+  margin: 20px;
+  margin-bottom: 100px;
+}
+
+.myLeftCtn .myInput {
+  width: 350px;
+  border-radius: 25px;
+  padding: 10px;
+  padding-left: 50px;
+  border: none;
+  -webkit-box-shadow: 0px 10px 49px -14px rgba(0,0,0,0.7);
+  -moz-box-shadow: 0px 10px 49px -14px rgba(0,0,0,0.7);
+  box-shadow: 0px 10px 49px -14px rgba(0,0,0,0.7);
+}
+
+.myLeftCtn .myInput:focus {
+  outline: none;
+}
+
+.myForm {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-group {
+  padding: 10px;
+}
+
+.myLeftCtn .buttonSubmit {
+  background-color: #112B3C;
+  font-weight: bold;
+  color: #EFEFEF;
+  width: 230px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 25px;
+  padding: 15px;
+  transition: 0.3s;
+  -webkit-box-shadow: 0px 10px 41px -11px rgba(0,0,0,0.7);
+  -moz-box-shadow: 0px 10px 41px -11px rgba(0,0,0,0.7);
+  box-shadow: 0px 10px 41px -11px rgba(0,0,0,0.7);
+}
+
+.myLeftCtn .buttonSubmit:hover {
+  background-color: #205375;
+}
+
+.fa-solid {
+  color: #112B3C;
+  position: relative;
+  left: 40px;
+}
+
+.picThumb {
+  width: 50px;
+  border-radius: 25px;
 }

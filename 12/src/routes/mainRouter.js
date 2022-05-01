@@ -3,11 +3,7 @@ const { controller } = require("../controller/articles");
 
 const router = express.Router();
 
-router.get("/", (request, response, next) => {
-  response.render("pages/formulario", { pageTitle: "Cargar nuevo producto" });
-});
-
-router.get("/productos", async (request, response, next) => {
+router.get("/", async (request, response, next) => {
   const products = await controller.getAll()
   response.render("pages/index", {
     pageTitle: "Listado de productos",

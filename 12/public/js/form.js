@@ -22,7 +22,7 @@ async function postData(url = "", data = {}) {
 }
 
 button.addEventListener("click", async (e) => {
-  console.log(e)
+  console.log(e);
   e.preventDefault();
   try {
     const data = {
@@ -31,7 +31,7 @@ button.addEventListener("click", async (e) => {
       thumbnail: thumbnail.value,
     };
 
-    console.log(data)
+    console.log(data);
     title.value = price.value = "";
     const url = "http://localhost:8080/api/productos";
 

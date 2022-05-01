@@ -28,53 +28,5 @@
 		"nombre": "Mameluco",
 		"precio": 400,
 		"thumbnail": "https://picsum.photos/400"
-	},
-	{
-		"id": "34966d0f-14dc-48e8-8c27-361832e25b9c",
-		"nombre": "Zapato",
-		"precio": 795.45,
-		"thumbnail": "https://cdn2.iconfinder.com/data/icons/summer-179/128/_shoes_sneakers_summer_converse-512.png"
-	},
-	{
-		"id": "7656a31b-b0bb-4267-a39c-3f6cc06fcc55",
-		"nombre": "Babucha",
-		"precio": 784,
-		"thumbnail": "www.campera.com"
-	},
-	{
-		"id": "6507863f-9994-4afd-9986-6cc94d6af56b",
-		"nombre": "Capufanda",
-		"precio": 8956,
-		"thumbnail": "www.ee.com"
-	},
-	{
-		"id": "5c76a932-5fda-475c-a73d-23ce171ce4b4",
-		"nombre": "Campera",
-		"precio": 8875,
-		"thumbnail": "www.babucha.com"
-	},
-	{
-		"id": "cb557bcf-bebf-4303-841c-b4b2ad96b620",
-		"nombre": "Babucha",
-		"precio": 8875,
-		"thumbnail": "www.babucha.com"
-	},
-	{
-		"id": "4fda1c5a-d578-444c-afe6-bb6f74b55bb8",
-		"nombre": "Babucha",
-		"precio": 4451,
-		"thumbnail": "www.babucha.com"
-	},
-	{
-		"id": "4ac4a290-c424-4684-a7d4-5d401e1d6dee",
-		"nombre": "Babucha",
-		"precio": 78,
-		"thumbnail": "www.campera.com"
-	},
-	{
-		"id": "15c3568c-ab80-4ce2-b33a-382ab3a228c5",
-		"nombre": "Casco",
-		"precio": 888,
-		"thumbnail": "www.casco.com"
 	}
 ]
