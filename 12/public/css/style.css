@@ -47,17 +47,19 @@ body {
 
 .row {
   height: 100%;
-  margin-top: 50px;
+  margin: 50px;
 }
 
 .myRightCtn header {
   color: #205375;
   font-size: 24px;
+  text-align: center;
+  margin: 15px 0;
+  font-weight: 700;
 }
 
 .box {
   margin: 20px;
-  margin-bottom: 100px;
 }
 
 .myLeftCtn .myInput {
@@ -114,4 +116,14 @@ body {
 .picThumb {
   width: 50px;
   border-radius: 25px;
+}
+
+.table {
+  width: 700px;
+}
+
+.trProd {
+  text-align: center;
+  font-size: 18px;
+  vertical-align: middle;
 }

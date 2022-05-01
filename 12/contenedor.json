@@ -28,5 +28,17 @@
 		"nombre": "Mameluco",
 		"precio": 400,
 		"thumbnail": "https://picsum.photos/400"
+	},
+	{
+		"id": "6cb3c431-276a-4b29-95cf-ea5b66ae8cf1",
+		"nombre": "Saco",
+		"precio": 334,
+		"thumbnail": "https://d2r9epyceweg5n.cloudfront.net/stores/793/350/products/foto_01111-0b5a547ef4a4c62e1d15377501492307-1024-1024.jpg"
+	},
+	{
+		"id": "e2eb5f9f-43b8-4597-ac5a-6c27b32b9c44",
+		"nombre": "Sabanas",
+		"precio": 4556,
+		"thumbnail": "https://ockam-cloud-dr.imgix.net/imagenes-s/productos/sabanas-casablanca-9944-oro-x-2-12-144-hilos-lisa-co-11243.jpg?auto=format"
 	}
 ]

@@ -22,7 +22,6 @@ async function postData(url = "", data = {}) {
 }
 
 button.addEventListener("click", async (e) => {
-  console.log(e);
   e.preventDefault();
   try {
     const data = {
@@ -36,7 +35,9 @@ button.addEventListener("click", async (e) => {
     const url = "http://localhost:8080/api/productos";
 
     response = await postData(url, data);
+
     location.reload();
+    
   } catch (err) {
     console.error(err);
   }
