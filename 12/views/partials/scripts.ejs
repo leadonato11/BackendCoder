@@ -24,10 +24,12 @@
     const tableBody = document.getElementById("tableBody")
     const row = `<tr class="trProd">
                   <td>${product.nombre}</td>
-                  <td>${product.precio}</td>
+                  <td>$${product.precio}</td>
                   <td><img class="picThumb" src="${product.thumbnail}" alt="Imagen de producto"></td>
                 </tr>`
 
     tableBody.innerHTML += row
   }
+
+  
 </script>

@@ -36,8 +36,8 @@ button.addEventListener("click", async (e) => {
 
     response = await postData(url, data);
 
-    location.reload();
-    
+    location.reload()
+
   } catch (err) {
     console.error(err);
   }

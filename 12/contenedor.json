@@ -1,35 +1,5 @@
 [
 	{
-		"id": "a6b49e5f-876f-4ad5-9a84-aa5671213aa4",
-		"nombre": "Buzo",
-		"precio": 798.36,
-		"thumbnail": "https://picsum.photos/400"
-	},
-	{
-		"id": "942a4ceb-02c9-4015-8b04-44b6215add29",
-		"nombre": "Remera",
-		"precio": 58.65,
-		"thumbnail": "https://picsum.photos/400"
-	},
-	{
-		"id": "b5dc9f0d-9216-489e-848b-14de5611daa9",
-		"nombre": "Campera",
-		"precio": 700.8,
-		"thumbnail": "https://picsum.photos/400"
-	},
-	{
-		"id": "48c7e9ae-b082-4a46-90de-ff7033807fd5",
-		"nombre": "Pantalon",
-		"precio": 745.15,
-		"thumbnail": "https://picsum.photos/400"
-	},
-	{
-		"id": "c2394e82-a5eb-4b1e-8280-323814078a95",
-		"nombre": "Mameluco",
-		"precio": 400,
-		"thumbnail": "https://picsum.photos/400"
-	},
-	{
 		"id": "6cb3c431-276a-4b29-95cf-ea5b66ae8cf1",
 		"nombre": "Saco",
 		"precio": 334,
@@ -52,5 +22,17 @@
 		"nombre": "Jean",
 		"precio": 4556,
 		"thumbnail": "https://taverniti.vteximg.com.br/arquivos/ids/236641-2000-2500/11331_525X1.jpg?v=637714760288070000"
+	},
+	{
+		"id": "019315c2-22d7-41e5-82c3-08aa1c500894",
+		"nombre": "Frazadas",
+		"precio": 11223,
+		"thumbnail": "https://ondablanca.com.ar/img/productos/original/0307-1.jpg"
+	},
+	{
+		"id": "9ec62975-6187-459d-8fca-78b7999a27bd",
+		"nombre": "Pera",
+		"precio": 43,
+		"thumbnail": "https://perfumesyfragancias.online/wp-content/uploads/2018/10/poire.jpg"
 	}
 ]
