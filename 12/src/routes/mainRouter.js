@@ -4,8 +4,9 @@ const { controller } = require("../controller/articles");
 const router = express.Router();
 
 router.get("/", async (request, response, next) => {
-  const products = await controller.getAll()
-  response.render("pages/formulario", { pageTitle: "Cargar nuevo producto", products});
+  response.render("pages/formulario", {
+    pageTitle: "Cargar nuevo producto",
+  });
 });
 
 module.exports = router; // Default export

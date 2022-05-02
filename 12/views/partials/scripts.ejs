@@ -9,18 +9,23 @@
 
   socket.on("productCreated", (newProduct) => {
     console.log("Se creó un producto", newProduct);
+    attachRow(newProduct)
   });
 
   socket.on("loadProducts", (articles) => {
     console.log(articles);
+
+    articles.forEach(article => {
+    attachRow(article)
+    });
   });
 
   const attachRow = (product) => {
     const tableBody = document.getElementById("tableBody")
-    const row = `<tr>
+    const row = `<tr class="trProd">
                   <td>${product.nombre}</td>
                   <td>${product.precio}</td>
-                  <td><img src="${product.thumbnail}" alt="Imagen de producto"></td>
+                  <td><img class="picThumb" src="${product.thumbnail}" alt="Imagen de producto"></td>
                 </tr>`
 
     tableBody.innerHTML += row

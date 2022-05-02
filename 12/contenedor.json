@@ -40,5 +40,17 @@
 		"nombre": "Sabanas",
 		"precio": 4556,
 		"thumbnail": "https://ockam-cloud-dr.imgix.net/imagenes-s/productos/sabanas-casablanca-9944-oro-x-2-12-144-hilos-lisa-co-11243.jpg?auto=format"
+	},
+	{
+		"id": "800ec441-88a2-421d-b3ad-926c5757d69d",
+		"nombre": "Camisa",
+		"precio": 9987,
+		"thumbnail": "https://www.texora.cl/554-zoom/camisa-oxford-classic-m-l-55-alg-45-poly-blanco-t-xs.jpg"
+	},
+	{
+		"id": "09d026c8-51a8-4f3f-8e17-fdcb23b93b7c",
+		"nombre": "Jean",
+		"precio": 4556,
+		"thumbnail": "https://taverniti.vteximg.com.br/arquivos/ids/236641-2000-2500/11331_525X1.jpg?v=637714760288070000"
 	}
 ]

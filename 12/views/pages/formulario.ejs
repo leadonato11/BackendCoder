@@ -53,21 +53,7 @@
                   </tr>
                 </thead>
                 <tbody id="tableBody">
-                  <% products.forEach(product=> { %>
-                    <tr class="trProd">
-                      <td>
-                        <%= product.nombre %>
-                      </td>
-                      <td>$<%= product.precio %>
-                      </td>
-                      <td><img class="picThumb" src="<%= product.thumbnail %>" alt="Pic of the product"></td>
-                    </tr>
-                    <% }) %>
-                      <% if (products.length <=0) { %>
-                        <tr class="trProd">
-                          <td colspan="3"> No hay productos </td>
-                        </tr>
-                        <% } %>
+                  
                 </tbody>
               </table>
 
