@@ -8,10 +8,18 @@ const initWsServer = (server) => {
   io.on("connection", (socket) => {
     console.log("Nueva Conexion establecida!", socket.id);
 
-    socket.on('loadProducts', async () => {
+    socket.on("loadProducts", async () => {
       const articles = await controller.getAll();
-      socket.emit('productsLoaded', articles)
-    })
+      socket.emit("productsLoaded", articles);
+    });
+
+    //Listen for chat messages
+    socket.on("chatMessage", (msg) => {
+      const user = getCurrentUser(socket.client.id);
+      data.username = user.username;
+      data.text = msg;
+      io.to(user.room).emit("message", formatMessages(data));
+    });
   });
 
   return io;

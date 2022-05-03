@@ -15,6 +15,8 @@ socket.on("productsLoaded", (articles) => {
   });
 });
 
+
+
 const attachRow = (product) => {
   const tableBody = document.getElementById("tableBody");
   const row = `<tr class="trProd">
@@ -25,6 +27,17 @@ const attachRow = (product) => {
 
   tableBody.innerHTML += row;
 };
+
+const chatMessage = (message) => {
+  const messageBox = document.getElementById("messageBox")
+  const messageCtn = `<div class="messagesCtn">
+                        <p class="userEmail">${message.username}</p>
+                        <p class="messageDate">[${message.time}]:</p>
+                        <p class="userMessage">${message.text}</p>
+                      </div>`
+
+  messageBox.innerHTML += messageCtn
+}
 
 const title = document.getElementById("title");
 const price = document.getElementById("price");

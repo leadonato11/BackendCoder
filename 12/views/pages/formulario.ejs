@@ -1,53 +1,49 @@
-<div class="container">
-  <div class="myCard">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="myLeftCtn">
+<div class="row">
+  <div class="col-md-12">
+    <div class="myLeftCtn">
 
-          <form id="form" class="myForm text-center">
-            <header>Ingreso de productos</header>
-            <div class="form-group">
-              <i class="fa-solid fa-box"></i>
-              <input class="myInput" type="text" name="nombre" id="title" placeholder="Producto..." required>
-            </div>
-
-            <div class="form-group">
-              <i class="fa-solid fa-dollar-sign"></i>
-              <input class="myInput" type="number" name="price" id="price" placeholder="Precio..." required>
-            </div>
-
-            <div class="form-group">
-              <i class="fa-solid fa-image"></i>
-              <input class="myInput" type="text" name="thumbnail" id="thumbnail" placeholder="Miniatura..." required>
-            </div>
-
-            <input class="buttonSubmit" type="submit" id="sendForm" value="Guardar producto">
-          </form>
+      <form id="form" class="myForm text-center">
+        <header>Ingreso de productos</header>
+        <div class="form-group">
+          <i class="fa-solid fa-box"></i>
+          <input class="myInput" type="text" name="nombre" id="title" placeholder="Producto..." required>
         </div>
-      </div>
+
+        <div class="form-group">
+          <i class="fa-solid fa-dollar-sign"></i>
+          <input class="myInput" type="number" name="price" id="price" placeholder="Precio..." required>
+        </div>
+
+        <div class="form-group">
+          <i class="fa-solid fa-image"></i>
+          <input class="myInput" type="text" name="thumbnail" id="thumbnail" placeholder="Miniatura..." required>
+        </div>
+
+        <input class="buttonSubmit" type="submit" id="sendForm" value="Guardar producto">
+      </form>
     </div>
-    
-    <div class="row">
-      <div class="col-md-12">
-        <div class="myRightCtn">
-          <div class="box">
-            <header>Lista de productos</header>
+  </div>
+</div>
 
-            <table class="table table-striped">
-              <thead>
-                <tr class="trProd">
-                  <th scope="col">Producto</th>
-                  <th scope="col">Precio</th>
-                  <th scope="col">Miniatura</th>
-                </tr>
-              </thead>
-              <tbody id="tableBody">
+<div class="row">
+  <div class="col-md-12">
+    <div class="myRightCtn">
+      <div class="box">
+        <header>Lista de productos</header>
 
-              </tbody>
-            </table>
+        <table class="table table-striped">
+          <thead>
+            <tr class="trProd">
+              <th scope="col">Producto</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Miniatura</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
 
-          </div>
-        </div>
+          </tbody>
+        </table>
+
       </div>
     </div>
   </div>
