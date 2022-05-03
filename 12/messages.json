@@ -1,1 +1,17 @@
-[]
+[
+	{
+		"username": "leandro@gmail.com",
+		"time": "03-05-2022 12:40",
+		"message": "Hola soy Lea!"
+	},
+	{
+		"time": "03-05-2022 13:06",
+		"username": "lea@gmail.com",
+		"message": "Hola papá!"
+	},
+	{
+		"time": "03-05-2022 13:04",
+		"username": "lean@hotmail.com",
+		"message": "Aca llegué"
+	}
+]

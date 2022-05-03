@@ -1,5 +1,6 @@
 const socket = io();
 socket.emit("loadProducts");
+socket.emit("loadChat");
 
 socket.on("productCreated", (newProduct) => {
   console.log("Se creó un producto", newProduct);
@@ -15,7 +16,19 @@ socket.on("productsLoaded", (articles) => {
   });
 });
 
+socket.on("chatLoaded", (messages) => {
+  // Se puede utilizar "once" tambien.
+  console.log(messages);
 
+  messages.forEach((message) => {
+    chatMessage(message);
+  });
+});
+
+socket.on("newMessage", (newMessage) => {
+  console.log("Se creó un Mensaje", newMessage);
+  chatMessage(newMessage);
+});
 
 const attachRow = (product) => {
   const tableBody = document.getElementById("tableBody");
@@ -29,15 +42,15 @@ const attachRow = (product) => {
 };
 
 const chatMessage = (message) => {
-  const messageBox = document.getElementById("messageBox")
+  const messageBox = document.getElementById("messageBox");
   const messageCtn = `<div class="messagesCtn">
                         <p class="userEmail">${message.username}</p>
-                        <p class="messageDate">[${message.time}]:</p>
-                        <p class="userMessage">${message.text}</p>
-                      </div>`
+                        <p class="messageDate">[${message.time} hs]:</p>
+                        <p class="userMessage">${message.message}</p>
+                      </div>`;
 
-  messageBox.innerHTML += messageCtn
-}
+  messageBox.innerHTML += messageCtn;
+};
 
 const title = document.getElementById("title");
 const price = document.getElementById("price");
@@ -81,4 +94,23 @@ button.addEventListener("click", async (e) => {
   } catch (err) {
     console.error(err);
   }
+});
+
+const btnSubmitMessage = document.getElementById("buttonSubmitMessage");
+
+btnSubmitMessage.addEventListener("click", () => {
+  // Tomo los datos del contenedor del campo de texto y boton del mensaje
+  const username = document.getElementById("email");
+  const message = document.getElementById("message");
+
+  if (message.value == "" || username.value == "") return;
+
+  const data = {
+    username: username.value,
+    message: message.value,
+  };
+
+  socket.emit("sendMessage", data);
+
+  message.value = "";
 });

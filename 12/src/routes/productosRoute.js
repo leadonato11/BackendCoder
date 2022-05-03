@@ -1,6 +1,6 @@
 const express = require("express");
 const { controller } = require("../controller/articles");
-const { getWsServer } = require("../services/socket");
+const { sendToAll } = require("../services/socket");
 const router = express.Router();
 
 // GET '/api/productos' -> devuelve todos los productos.
@@ -58,7 +58,7 @@ router.post("/", async (request, response) => {
 
   const newProduct = await controller.save(productPost);
 
-  getWsServer().sockets.emit('productCreated', newProduct)
+  sendToAll("productCreated", newProduct);
 
   response.json({
     data: newProduct,
