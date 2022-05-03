@@ -4,15 +4,16 @@
   integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script src="/js/form.js"></script>
-<script>
+<!-- <script>
   const socket = io();
+  socket.emit('loadProducts')
 
   socket.on("productCreated", (newProduct) => {
     console.log("Se creó un producto", newProduct);
     attachRow(newProduct)
   });
 
-  socket.on("loadProducts", (articles) => {
+  socket.on("productsLoaded", (articles) => {  // Se puede utilizar "once" tambien.
     console.log(articles);
 
     articles.forEach(article => {
@@ -31,5 +32,7 @@
     tableBody.innerHTML += row
   }
 
+  // puedo continuar con lo del chat aqui
+  /*  */
   
-</script>
+</script> -->

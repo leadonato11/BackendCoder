@@ -4,7 +4,7 @@ const { controller } = require("../controller/articles");
 const router = express.Router();
 
 router.get("/", async (request, response, next) => {
-  response.render("pages/formulario", {
+  response.render("index", {
     pageTitle: "Cargar nuevo producto",
   });
 });

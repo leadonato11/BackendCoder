@@ -1,3 +1,31 @@
+const socket = io();
+socket.emit("loadProducts");
+
+socket.on("productCreated", (newProduct) => {
+  console.log("Se creó un producto", newProduct);
+  attachRow(newProduct);
+});
+
+socket.on("productsLoaded", (articles) => {
+  // Se puede utilizar "once" tambien.
+  console.log(articles);
+
+  articles.forEach((article) => {
+    attachRow(article);
+  });
+});
+
+const attachRow = (product) => {
+  const tableBody = document.getElementById("tableBody");
+  const row = `<tr class="trProd">
+                <td>${product.nombre}</td>
+                <td>$${product.precio}</td>
+                <td><img class="picThumb" src="${product.thumbnail}" alt="Imagen de producto"></td>
+              </tr>`;
+
+  tableBody.innerHTML += row;
+};
+
 const title = document.getElementById("title");
 const price = document.getElementById("price");
 const thumbnail = document.getElementById("thumbnail");
@@ -36,8 +64,7 @@ button.addEventListener("click", async (e) => {
 
     response = await postData(url, data);
 
-    location.reload()
-
+    location.reload();
   } catch (err) {
     console.error(err);
   }

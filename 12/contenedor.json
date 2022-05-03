@@ -34,5 +34,17 @@
 		"nombre": "Pera",
 		"precio": 43,
 		"thumbnail": "https://perfumesyfragancias.online/wp-content/uploads/2018/10/poire.jpg"
+	},
+	{
+		"id": "d2f06ea5-56ee-489f-82a3-b819f7193beb",
+		"nombre": "Macbook",
+		"precio": 55643,
+		"thumbnail": "https://www.macstation.com.ar/img/productos/2614-1.jpg"
+	},
+	{
+		"id": "03214fc4-139a-4900-9452-f9071b969e47",
+		"nombre": "iphone 13",
+		"precio": 1450,
+		"thumbnail": "https://macfixstore.com/wp-content/uploads/2021/11/iphone-13-pink-select-2021.png"
 	}
 ]

@@ -5,10 +5,13 @@ let io;
 
 const initWsServer = (server) => {
   io = socketIo(server);
-  io.on("connection", async (socket) => {
+  io.on("connection", (socket) => {
     console.log("Nueva Conexion establecida!", socket.id);
-    const articles = await controller.getAll();
-    socket.emit('loadProducts', articles)
+
+    socket.on('loadProducts', async () => {
+      const articles = await controller.getAll();
+      socket.emit('productsLoaded', articles)
+    })
   });
 
   return io;

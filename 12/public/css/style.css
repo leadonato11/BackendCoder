@@ -76,15 +76,14 @@ body {
 }
 
 .messageDate {
-  font-weight: lighter;
-  font-style: italic;
   color: #F66B0E;
   padding: 5px;
   margin: 0;
 }
 
 .userMessage {
-  color: #112B3C;
+  color: #4E944F;
+  font-style: italic;
   padding: 5px;
   margin: 0;
   width: 250px;
