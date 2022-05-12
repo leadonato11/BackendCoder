@@ -23,14 +23,6 @@ const initWsServer = (server) => {
       const newMessage = await chatController.save(obj);
       sendToAll("newMessage", newMessage);
     });
-
-    //Listen for chat messages
-    // socket.on("loadChat", (message) => {
-    //   const user = getCurrentUser(socket.client.id);
-    //   data.username = user.username;
-    //   data.message = message;
-    //   io.to(user.room).emit("message", formatMessages(data));
-    // });
   });
 
   return io;

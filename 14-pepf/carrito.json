@@ -1,0 +1,16 @@
+[
+  {
+    "id": "a6b49e5f-876f-4ad5-9a84-aa5671213aa4",
+    "timestamp": "12/05/2022 22:30:45",
+    "productos": {
+      "id": "a6b49e5f-876f-4ad5-9a84-aa5671213aa4",
+      "timestamp": "12/05/2022 22:30:45",
+      "nombre": "Buzo",
+      "descripcion": "buzo para que no te cagues de frio",
+      "codigo": "C789",
+      "thumbnail": "https://picsum.photos/400",
+      "precio": 798.36,
+      "stock": 5
+    }
+  }
+]
