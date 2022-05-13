@@ -1,12 +1,22 @@
 [
-  {
-    "id": "a6b49e5f-876f-4ad5-9a84-aa5671213aa4",
-    "timestamp": "12/05/2022 22:30:45",
-    "nombre": "Buzo",
-    "descripcion": "buzo para que no te cagues de frio",
-    "codigo": "C789",
-    "thumbnail": "https://picsum.photos/400",
-    "precio": 798.36,
-    "stock": 5
-  }
+	{
+		"id": "148772a8-9702-4c57-93a3-41734ac14d5a",
+		"timestamp": "12/05/2022, 9:14:58 pm",
+		"nombre": "Chinelas",
+		"descripcion": "Chinelas para el calor papá!",
+		"codigo": "C485",
+		"precio": 200,
+		"thumbnail": "https://picsum.photos/400",
+		"stock": 9
+	},
+	{
+		"id": "27d2fc07-12e1-47ab-91c4-da9622dfe1e4",
+		"timestamp": "12/05/2022, 9:43:48 pm",
+		"nombre": "Campera",
+		"descripcion": "Campera para que no te cagues de frio",
+		"codigo": "C665",
+		"precio": 995.45,
+		"thumbnail": "https://picsum.photos/400",
+		"stock": 6
+	}
 ]

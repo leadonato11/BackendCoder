@@ -1,5 +1,6 @@
 const { v4: uuidv4 } = require("uuid");
 const fs = require("fs");
+const moment = require("moment");
 
 
 class Articles {
@@ -20,7 +21,7 @@ class Articles {
 
   // -------------------------------------------------------------------------------
 
-  // Number - Recibe un objeto, lo guarda en el archivo, devuelve el id asignado.
+  // Devuelve Number - Recibe un objeto, lo guarda en el archivo, devuelve el id asignado.
   async save(obj) {
     const articles = await this.readFile();
 
@@ -31,6 +32,7 @@ class Articles {
     };
     articles.push(saveObject);
     await this.writeFile(articles);
+    return saveObject
   }
 
   // Object - Recibe un id y devuelve el objeto con ese id, o null si no está.

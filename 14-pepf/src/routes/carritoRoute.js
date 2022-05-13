@@ -16,50 +16,60 @@ router.get("/", async (request, response) => {
 
   response.json({
     data: carritos,
-    message: "PETICIÓN GET A LOS CARRITOS DISPONIBLES",
   });
 });
 
-// GET '/api/carrito/:id' -> devuelve un carrito según su id con los productos que tenga.
+// GET '/api/carrito/:id/productos' -> devuelve los productos de un carrito según el id.
 
 router.get("/:id/productos", async (request, response) => {
-  const { idCarrito } = request.params; // Obtengo el id del carrito
-  const carrito = await controller.getById(idCarrito);
-  const productos = carrito.productos;
-  
-  try {
-    res.json({ productos });
-  } catch (error) {
-    response.json({ msg: "NO SE PUDO ACCEDER AL CARRITO" });
-  }
+  const idCarrito = request.params.id; // Obtengo el id del carrito
+  const carrito = await controller.getById(idCarrito); // Busco el carrito según el id
+  const productos = carrito.productos; // Guardo los productos de ese carrito en productos
+
+  response.json({
+    data: productos,
+  });
 });
 
-// POST '/' -> Crea un carrito y lo devuelve con su id asignado.
+// POST '/' -> Crea un carrito y lo devuelve con sus datos.
 
-router.post('/', async (req, res) => {
-  const carrito = await CartController.createCart()
+router.post("/", async (request, response) => {
+  const carrito = await controller.saveCart();
 
-  try {
-      res.json(carrito.id)
-  }
-  catch (error) {
-  res.json({msg: "NO SE PUDO CREAR CARRITO"})
-  }
-})
+  response.json({
+    msg: "Carrito creado",
+    data: carrito,
+  });
+});
 
-// POST '/api/:id/productos' -> recibe y agrega un producto en el carrito, y lo devuelve con su id asignado.
+// POST '/api/:id/productos' -> recibe un id de carrito y agrega un producto en el, y devuelve el carrito con el producto incluido.
 
 router.post("/:id/productos", async (request, response) => {
-  const { idCarrito } = request.body; // Obtengo el id del carrito
-  const { idProductAdd } = request.params
+  const idCarrito = request.params.id; // Obtengo el id del carrito de los params
+  const idProductAdd = request.body.id; // Obtengo el id del producto pasado por body
 
-  await controller.saveProduct(idCarrito, idProductAdd);
+  await controller.saveProduct(idCarrito, idProductAdd); // Le clavo el producto al carrito. Tremendo esto.
+  const carritoConProducto = await controller.getById(idCarrito);
 
-  try {
-    response.json({ msg: "PRODUCTO AGREGADO" });
-  } catch (error) {
-    response.json({ msg: "NO SE PUDO AGREGAR EL PRODUCTO" });
-  }
+  response.json({
+    msg: "Se agregó el producto al carrito",
+    data: carritoConProducto,
+  });
+});
+
+// DELETE '/api/carrito/:id/productos/:id_prod' -> elimina un producto del carrito según su id.
+
+router.delete("/:id/productos/:id_prod", async (request, response) => {
+  const idCarrito = request.params.id;
+  const idProd = request.params.id_prod;
+
+  await controller.deleteProductById(idCarrito, idProd);
+  const carrito = await controller.getById(idCarrito);
+
+  response.json({
+    msg: "El producto se ha borrado del carrito",
+    data: carrito,
+  });
 });
 
 // DELETE '/api/carrito/:id' -> elimina un carrito según su id.
@@ -72,6 +82,5 @@ router.delete("/:id", async (request, response) => {
     message: "PETICIÓN DELETE PARA ELIMINAR UN PRODUCTO",
   });
 });
-
 
 module.exports = router;

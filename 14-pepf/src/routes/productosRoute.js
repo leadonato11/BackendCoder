@@ -6,22 +6,9 @@ y el router para los endpoints.
 const express = require("express");
 const { controller } = require("../controller/articles");
 const router = express.Router();
-
-// Autenticación de user
-function userAuth(req, res, next) {
-  const isAdmin = false;
-  if (isAdmin == true) next();
-
-  console.log(`isAdmin está seteado en ${isAdmin}`)
-
-  res.json({
-    error: 401,
-    description: "ruta X método Y no autorizada",
-  });
-}
+const userAuth = require("../middleware/authentication");
 
 /* ------------ Aqui comienzo con los endpoints ------------ */
-
 // GET '/api/productos' -> devuelve todos los productos.
 
 router.get("/", async (request, response) => {
@@ -53,9 +40,8 @@ router.get("/:id", async (request, response) => {
 // POST '/api/productos' -> recibe y agrega un producto, y lo devuelve con su id asignado.
 
 router.post("/", userAuth, async (request, response) => {
-  console.log(request.body);
-  console.log(request);
-  const { nombre, descripcion, codigo, precio, thumbnail, stock } = request.body;
+  const { nombre, descripcion, codigo, precio, thumbnail, stock } =
+    request.body;
 
   console.log(nombre, descripcion, codigo, precio, thumbnail, stock);
 
@@ -71,7 +57,7 @@ router.post("/", userAuth, async (request, response) => {
     codigo,
     precio,
     thumbnail,
-    stock
+    stock,
   };
 
   console.log(productPost);
@@ -93,7 +79,8 @@ router.post("/", userAuth, async (request, response) => {
 // PUT '/api/productos/:id' -> recibe y actualiza un producto según su id.
 
 router.put("/:id", userAuth, async (request, response) => {
-  const { nombre, descripcion, codigo, precio, thumbnail, stock } = request.body;
+  const { nombre, descripcion, codigo, precio, thumbnail, stock } =
+    request.body;
   const { id } = request.params;
 
   const article = await controller.getById(id);
@@ -116,7 +103,7 @@ router.put("/:id", userAuth, async (request, response) => {
     codigo,
     precio,
     thumbnail,
-    stock
+    stock,
   };
 
   if (isNaN(precio)) {

@@ -1,5 +1,7 @@
 const { v4: uuidv4 } = require("uuid");
 const fs = require("fs");
+const { controller } = require("./articles");
+const moment = require("moment");
 
 class Cart {
   constructor(file) {
@@ -19,20 +21,20 @@ class Cart {
 
   // -------------------------------------------------------------------------------
 
-  // Recibe un objeto y lo guarda en el contenedor del carrito.json
-  async saveCart(obj) {
+  // Creación del carrito
+  async saveCart() {
     const carritos = await this.readFile(); // Leo el archivo json para ver si hay carritos y lo guardo en una constante.
 
     // Guardo en una variable saveObject, todos los campos requeridos del carrito
-    const saveObject = {
+    const saveCarrito = {
       id: uuidv4(),
       timestamp: moment().format("DD/MM/YYYY, h:mm:ss a"),
-      ...obj, // incluye todos los campos del objeto
+      productos: []
     };
-    carritos.push(saveObject);
+    carritos.push(saveCarrito);
     await this.writeFile(carritos);
 
-    return carritos;
+    return saveCarrito;
   }
 
   // Number - Recibe un id de carrito y otro de producto, ambos numéricos y guarda el producto en el carrito.
@@ -79,6 +81,19 @@ class Cart {
     const carritos = await this.readFile(); // Leo el archivo y guardo el contenido en articles
     const carritosFiltered = carritos.filter((carrito) => carrito.id != number); // Filtro por el param que pasé. Si está, lo saco del array.
     await this.writeFile(carritosFiltered);
+  }
+
+  // void - Elimina un producto del carrito según el id pasado.
+  async deleteProductById(idCarrito,idProd) {
+    const carrito = await this.getById(idCarrito);
+    const producto = idProd
+
+    const productoABorrar = carrito.productos.filter(
+      (unProducto) => unProducto.id = producto
+    );
+    console.log(productoABorrar)
+
+    await this.writeFile(productoABorrar);
   }
 
   // void - Elimina todos los objetos presentes en el archivo.
