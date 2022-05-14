@@ -1,6 +1,6 @@
 [
 	{
-		"id": "148772a8-9702-4c57-93a3-41734ac14d5a",
+		"id": "1",
 		"timestamp": "12/05/2022, 9:14:58 pm",
 		"nombre": "Chinelas",
 		"descripcion": "Chinelas para el calor papá!",
@@ -10,13 +10,43 @@
 		"stock": 9
 	},
 	{
-		"id": "27d2fc07-12e1-47ab-91c4-da9622dfe1e4",
+		"id": "2",
 		"timestamp": "12/05/2022, 9:43:48 pm",
 		"nombre": "Campera",
 		"descripcion": "Campera para que no te cagues de frio",
-		"codigo": "C665",
+		"codigo": "I665",
 		"precio": 995.45,
 		"thumbnail": "https://picsum.photos/400",
 		"stock": 6
+	},
+	{
+		"id": "3",
+		"timestamp": "13/05/2022, 9:48:48 pm",
+		"nombre": "Zapatos",
+		"descripcion": "Altos zapatos",
+		"codigo": "C554",
+		"precio": 788,
+		"thumbnail": "https://picsum.photos/400",
+		"stock": 2
+	},
+	{
+		"id": "4",
+		"timestamp": "13/05/2022, 10:44:48 am",
+		"nombre": "Capufanda",
+		"descripcion": "El invento para las selfies",
+		"codigo": "A884",
+		"precio": 45,
+		"thumbnail": "https://picsum.photos/400",
+		"stock": 41
+	},
+	{
+		"id": "5",
+		"timestamp": "13/05/2022, 12:50:48 am",
+		"nombre": "Remera",
+		"descripcion": "Canchera canchera",
+		"codigo": "C112",
+		"precio": 75.45,
+		"thumbnail": "https://picsum.photos/400",
+		"stock": 15
 	}
 ]

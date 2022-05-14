@@ -4,7 +4,7 @@ y el router para los endpoints.
 */
 
 const express = require("express");
-const { controller } = require("../controller/cart");
+const { controller: cartController } = require("../../controller/cart");
 const router = express.Router();
 
 /* ------------ Aqui comienzo con los endpoints ------------ */
@@ -23,18 +23,22 @@ router.get("/", async (request, response) => {
 
 router.get("/:id/productos", async (request, response) => {
   const idCarrito = request.params.id; // Obtengo el id del carrito
-  const carrito = await controller.getById(idCarrito); // Busco el carrito según el id
-  const productos = carrito.productos; // Guardo los productos de ese carrito en productos
+  const carrito = await cartController.getById(idCarrito); // Busco el carrito según el id
+
+  if (!carrito)
+    return response.status(404).json({
+      msj: "No existe el carrito con ese id",
+    });
 
   response.json({
-    data: productos,
+    data: carrito.productos,
   });
 });
 
 // POST '/' -> Crea un carrito y lo devuelve con sus datos.
 
 router.post("/", async (request, response) => {
-  const carrito = await controller.saveCart();
+  const carrito = await cartController.saveCart();
 
   response.json({
     msg: "Carrito creado",
@@ -45,11 +49,11 @@ router.post("/", async (request, response) => {
 // POST '/api/:id/productos' -> recibe un id de carrito y agrega un producto en el, y devuelve el carrito con el producto incluido.
 
 router.post("/:id/productos", async (request, response) => {
-  const idCarrito = request.params.id; // Obtengo el id del carrito de los params
+  const idCarrito = request.params.id; // Obtengo el id del carrito de los params. Sino se puede poner asi const { id: idCarrito } = request.params;
   const idProductAdd = request.body.id; // Obtengo el id del producto pasado por body
 
-  await controller.saveProduct(idCarrito, idProductAdd); // Le clavo el producto al carrito. Tremendo esto.
-  const carritoConProducto = await controller.getById(idCarrito);
+  await cartController.saveProduct(idCarrito, idProductAdd); // Le clavo el producto al carrito. Tremendo esto.
+  const carritoConProducto = await cartController.getById(idCarrito);
 
   response.json({
     msg: "Se agregó el producto al carrito",
@@ -63,8 +67,8 @@ router.delete("/:id/productos/:id_prod", async (request, response) => {
   const idCarrito = request.params.id;
   const idProd = request.params.id_prod;
 
-  await controller.deleteProductById(idCarrito, idProd);
-  const carrito = await controller.getById(idCarrito);
+  await cartController.deleteProductById(idCarrito, idProd);
+  const carrito = await cartController.getById(idCarrito);
 
   response.json({
     msg: "El producto se ha borrado del carrito",
@@ -76,7 +80,7 @@ router.delete("/:id/productos/:id_prod", async (request, response) => {
 
 router.delete("/:id", async (request, response) => {
   const { id } = request.params;
-  await controller.deleteById(id);
+  await cartController.deleteById(id);
 
   response.json({
     message: "PETICIÓN DELETE PARA ELIMINAR UN PRODUCTO",

@@ -1,1 +1,19 @@
-HOLA DESDE INDEX.EJS
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include ('./partials/head', {pageTitle}) %>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="myCard">
+      <%- include ('./pages/formulario') %>
+    </div>
+  </div>
+
+  <%- include ('./partials/scripts') %>
+</body>
+
+</html>

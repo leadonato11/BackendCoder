@@ -1,22 +1,38 @@
 [
 	{
-		"id": "148772a8-9702-4c57-93a3-41734ac14d5a",
-		"timestamp": "12/05/2022, 9:43:48 pm",
-		"nombre": "Campera",
-		"descripcion": "Campera para que no te cagues de frio",
-		"codigo": "C665",
-		"precio": 995.45,
-		"thumbnail": "https://picsum.photos/400",
-		"stock": 6
+		"id": "c2cecaac-ab68-4b97-a825-d094ae7f895e",
+		"timestamp": "13/05/2022, 11:14:54 am",
+		"productos": []
 	},
 	{
-		"id": "148772a8-9702-4c57-93a3-41734ac14d5a",
-		"timestamp": "12/05/2022, 9:14:58 pm",
-		"nombre": "Chinelas",
-		"descripcion": "Chinelas para el calor papá!",
-		"codigo": "C485",
-		"precio": 200,
-		"thumbnail": "https://picsum.photos/400",
-		"stock": 9
+		"id": "40b19946-0e8a-467a-84fc-f77dd619589b",
+		"timestamp": "13/05/2022, 11:14:55 am",
+		"productos": [
+			{
+				"id": "148772a8-9702-4c57-93a3-41734ac14d5a",
+				"timestamp": "12/05/2022, 9:14:58 pm",
+				"nombre": "Chinelas",
+				"descripcion": "Chinelas para el calor papá!",
+				"codigo": "C485",
+				"precio": 200,
+				"thumbnail": "https://picsum.photos/400",
+				"stock": 9
+			},
+			{
+				"id": "3",
+				"timestamp": "13/05/2022, 9:48:48 pm",
+				"nombre": "Zapatos",
+				"descripcion": "Altos zapatos",
+				"codigo": "C554",
+				"precio": 788,
+				"thumbnail": "https://picsum.photos/400",
+				"stock": 2
+			}
+		]
+	},
+	{
+		"id": "7856c389-5823-47b2-9840-bad9b1ec32c4",
+		"timestamp": "13/05/2022, 2:47:47 pm",
+		"productos": []
 	}
 ]

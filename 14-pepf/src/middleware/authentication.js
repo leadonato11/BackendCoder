@@ -1,7 +1,7 @@
 // Autenticación de user
 function userAuth(request, response, next) {
   const isAdmin = true;
-  if (isAdmin) next();
+  if (isAdmin) return next();
 
   console.log(`isAdmin está seteado en ${isAdmin}`)
 

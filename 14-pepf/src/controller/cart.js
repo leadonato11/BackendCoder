@@ -2,6 +2,7 @@ const { v4: uuidv4 } = require("uuid");
 const fs = require("fs");
 const { controller } = require("./articles");
 const moment = require("moment");
+const { response } = require("express");
 
 class Cart {
   constructor(file) {
@@ -29,7 +30,7 @@ class Cart {
     const saveCarrito = {
       id: uuidv4(),
       timestamp: moment().format("DD/MM/YYYY, h:mm:ss a"),
-      productos: []
+      productos: [],
     };
     carritos.push(saveCarrito);
     await this.writeFile(carritos);
@@ -42,14 +43,12 @@ class Cart {
     const carrito = await this.getById(idCart); // Traigo el carrito segun el id
     const product = await controller.getById(idProd); //Traigo el producto segun el id
 
+    if (!product) throw new Error("No existe el producto con ese id");
+
     carrito.productos.push(product); // Agrego el producto al carrito
-    const carritos = await this.readFile(); // Busco todos los carritos existentes
-    const index = carritos.findIndex((unCarrito) => unCarrito.id === idCart);
-    carritos.splice(index, 1, carrito);
+    await this.update(carrito.id, carrito);
 
-    await this.writeFile(carritos);
-
-    return carritos
+    return carrito;
   }
 
   // Object - Recibe un id y devuelve el objeto con ese id, o null si no está.
@@ -84,16 +83,16 @@ class Cart {
   }
 
   // void - Elimina un producto del carrito según el id pasado.
-  async deleteProductById(idCarrito,idProd) {
+  async deleteProductById(idCarrito, idProd) {
     const carrito = await this.getById(idCarrito);
-    const producto = idProd
 
-    const productoABorrar = carrito.productos.filter(
-      (unProducto) => unProducto.id = producto
+    const productoBorrados = carrito.productos.filter(
+      (unProducto) => (unProducto.id != idProd)
     );
-    console.log(productoABorrar)
+    console.log(productoBorrados);
 
-    await this.writeFile(productoABorrar);
+    carrito.productos = productoBorrados
+    await this.update(idCarrito, carrito);
   }
 
   // void - Elimina todos los objetos presentes en el archivo.
@@ -102,8 +101,8 @@ class Cart {
     await this.writeFile(emptyArr);
   }
 
-  // Object - Actualiza un producto.
-  async update(id, newArticle) {
+  // Object - Actualiza un carrito.
+  async update(id, newCarrito) {
     const carritos = await this.readFile();
     const index = carritos.findIndex((carrito) => carrito.id === id);
 
@@ -111,12 +110,12 @@ class Cart {
       throw new Error("No existe tal carrito");
     }
 
-    const articleUpdate = {
+    const carritoUpdate = {
       id,
-      ...newArticle,
+      ...newCarrito,
     };
 
-    carritos.splice(index, 1, articleUpdate);
+    carritos.splice(index, 1, carritoUpdate);
     await this.writeFile(carritos);
     const carritoEdited = await this.readFile();
     return carritoEdited[index];

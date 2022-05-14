@@ -1,6 +1,6 @@
 const express = require("express");
-const productosRouter = require("./productosRoute");
-const carritoRouter = require("./carritoRoute");
+const productosRouter = require("./api/productosRoute");
+const carritoRouter = require("./api/carritoRoute");
 const router = express.Router();
 
 /* Aca defino las rutas para los recursos que necesito.

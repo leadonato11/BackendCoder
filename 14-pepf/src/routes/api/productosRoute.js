@@ -4,9 +4,9 @@ y el router para los endpoints.
 */
 
 const express = require("express");
-const { controller } = require("../controller/articles");
+const { controller } = require("../../controller/articles");
 const router = express.Router();
-const userAuth = require("../middleware/authentication");
+const userAuth = require("../../middleware/authentication");
 
 /* ------------ Aqui comienzo con los endpoints ------------ */
 // GET '/api/productos' -> devuelve todos los productos.
@@ -16,7 +16,6 @@ router.get("/", async (request, response) => {
   console.log(articles);
   response.json({
     data: articles,
-    message: "PETICIÓN GET A LOS PRODUCTOS DISPONIBLES",
   });
 });
 
@@ -72,7 +71,6 @@ router.post("/", userAuth, async (request, response) => {
 
   response.json({
     data: articles,
-    message: "PETICIÓN POST PARA AGREGAR UN PRODUCTO",
   });
 });
 
