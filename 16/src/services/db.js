@@ -1,10 +1,12 @@
-import knex from "knex";
-import dbConfig from "../../knexfile";
+const knex = require("knex");
+const dbConfig = require("../../knexfile");
+const denv = require('dotenv')
+denv.config();
 
 class DB {
   constructor() {
     const environment = process.env.NODE_ENV || "development";
-    console.log(`SETTING ${environment} DB`);
+    console.log(`You are in ${environment} DB mode`);
     const options = dbConfig[environment];
     this.connection = knex(options);
   }
@@ -51,29 +53,27 @@ class DB {
     });
   }
 
-  getAllProds(tableName) {
+  get(tableName) {
     if (tableName) return this.connection(tableName).select("*", tableName);
 
     return this.connection(tableName);
   }
 
-  getProdbyId(tableName, id) {
-    if (id) return this.connection(tableName).where("id", id);
-
-    return this.connection(tableName);
-  }
-
-  saveProd(tableName, data) {
+  create(tableName, data) {
     return this.connection(tableName).insert(data);
   }
 
-  updateProd(tableName, id, data) {
+  update(tableName, id, data) {
     return this.connection(tableName).where("id", id).update(data);
   }
 
-  deleteProd(tableName, id) {
+  delete(tableName, id) {
     return this.connection(tableName).where("id", id).del();
   }
 }
 
-export const DBService = new DB();
+const DBService = new DB();
+
+module.exports = {
+  DBService,
+};

@@ -1,6 +1,5 @@
 const socketIo = require("socket.io");
-const { controller: articlesController } = require("../controller/articles");
-const { controller: chatController } = require("../controller/chat");
+const { getAllProds } = require("../controller/articles");
 
 let io;
 
@@ -9,20 +8,23 @@ const initWsServer = (server) => {
   io.on("connection", (socket) => {
     console.log("Nueva Conexion establecida!", socket.id);
 
+    // Socket para cargar los productos de la base de datos mariaDB desde el backend
     socket.on("loadProducts", async () => {
-      const articles = await articlesController.getAll();
+      const articles = await getAllProds();
       socket.emit("productsLoaded", articles);
     });
 
-    socket.on("loadChat", async () => {
-      const messages = await chatController.getAll();
-      socket.emit("chatLoaded", messages);
-    });
+    // Socket para cargar el chat de la base de datos sqlite3 desde el backend
+    // socket.on("loadChat", async () => {
+    //   const messages = await chatController.getAll();
+    //   socket.emit("chatLoaded", messages);
+    // });
 
-    socket.on("sendMessage", async (obj) => {
-      const newMessage = await chatController.save(obj);
-      sendToAll("newMessage", newMessage);
-    });
+    // Socket para enviar mensajes de chat a todos y guardar los mismos en la DB Sqlite3 desde el backend
+    // socket.on("sendMessage", async (obj) => {
+    //   const newMessage = await chatController.save(obj);
+    //   sendToAll("newMessage", newMessage);
+    // });
   });
 
   return io;
