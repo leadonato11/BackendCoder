@@ -4,18 +4,21 @@ const Jsondb = require("../services/jsondb");
 class Chat {
   constructor(file) {
     this.db = new Jsondb(file);
+
+    // constructor(table, dbName) {
+    //   this.table = table;
+    //   this.db = new DB(dbName, table)
   }
 
   async save(obj) {
-    const messages = await this.db.readFile();
-
     const saveObject = {
       time: moment().format("DD-MM-YYYY HH:ss"),
       ...obj,
     };
-    messages.push(saveObject);
-    await this.db.writeFile(messages);
-    return saveObject;
+
+    const savedObject = await this.db.create(saveObject);
+
+    return savedObject
   }
 
   async getAll() {
@@ -24,7 +27,7 @@ class Chat {
   }
 }
 
-const myChatController = new Chat("messages");
+const myChatController = new Chat("messages"); // constructor(table, dbName)
 
 module.exports = {
   controller: myChatController,

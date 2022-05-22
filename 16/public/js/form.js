@@ -33,8 +33,8 @@ socket.on("newMessage", (newMessage) => {
 const attachRow = (product) => {
   const tableBody = document.getElementById("tableBody");
   const row = `<tr class="trProd">
-                <td>${product.nombre}</td>
-                <td>$${product.precio}</td>
+                <td>${product.title}</td>
+                <td>$${product.price}</td>
                 <td><img class="picThumb" src="${product.thumbnail}" alt="Imagen de producto"></td>
               </tr>`;
 
@@ -79,14 +79,14 @@ button.addEventListener("click", async (e) => {
   e.preventDefault();
   try {
     const data = {
-      nombre: title.value,
-      precio: price.value,
+      title: title.value,
+      price: price.value,
       thumbnail: thumbnail.value,
     };
 
     console.log(data);
     title.value = price.value = "";
-    const url = "http://localhost:8080/api/productos";
+    const url = "http://localhost:3000/api/productos";
 
     response = await postData(url, data);
 

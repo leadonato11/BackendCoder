@@ -1,13 +1,13 @@
 // Update with your config settings.
 
 module.exports = {
-  development: {
+  sqlite3: {
     client: 'sqlite3',
     connection: { filename: 'src/db/ecommerce.sqlite' },
     useNullAsDefault: true,
   },
 
-  production: {
+  mysql: {
     client: 'mysql',
     connection: {
       host: '127.0.0.1',

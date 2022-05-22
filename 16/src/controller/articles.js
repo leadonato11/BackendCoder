@@ -1,93 +1,54 @@
-const { DBService } = require("../services/db");
+const DB = require("../services/db");
 
-const tableName = "products";
+class Articles {
+  constructor(table, dbName) {
+    this.table = table;
+    this.db = new DB(dbName, table)
+  }
 
-// Todas las funciones se arrancan ya exportándolas.
-// Método getAll para obtener todos los productos de la DB.
-const getAllProds = async (request, response) => {
-  const products = await DBService.get(tableName);
+  // -------------------------------------------------------------------------------
 
-  response.json({
-    data: products,
-  });
-};
+  // Object[] - Devuelve un array con los objetos presentes en el archivo.
+  async getAll() {
+    const articles = await this.db.get();
+    return articles;
+  }
 
-// Método getProdById para obtener un producto según el id desde la DB.
-const getProdById = async (request, response) => {
-  const { id } = request.params;
+  // Object[] - Recibe un id y devuelve el objeto con ese id, o null si no está.
+  async getById(id) {
+    const findArticle = await this.db.get(id); // Leo el archivo y guardo el contenido en article
+    const article = findArticle[0]; // Lo asigno al primer elemento
 
-  const item = await DBService.get(tableName, id);
+    return article || null;
+  }
 
-  if (!item.length)
-    return response.status(404).json({
-      msgs: "Product not found!",
-    });
+  // Number - Recibe un objeto, lo guarda en el archivo, devuelve el id asignado.
+  async save(obj) {
+    const savedObject = await this.db.create(obj);
 
-  response.json({
-    data: item,
-  });
-};
+    return savedObject;
+  }
 
-// Método saveProd para guardar un producto en la tabla products de la DB.
-const saveProd = async (request, response) => {
-  const { title, thumbnail, price } = request.body;
+  // Object - Actualiza un producto.
+  async update(id, newArticle) {
+    const countUpdated = await this.db.update(id, newArticle);
 
-  const data = {
-    title,
-    thumbnail,
-    price,
-  };
+    console.log(countUpdated);
 
-  const newId = await DBService.create(tableName, data);
+    if (countUpdated === 0) throw new Error("No existe tal producto");
 
-  const newProduct = await DBService.get(tableName, newId);
+    const articleUpdated = await this.db.get(id) // Esto me devuelve un array
+    return articleUpdated[0]; // Aca voy a mostrar el primer elemento de ese array (ya filtré por id, asi que mostrará el que tenga el id indicado)
+  }
 
-  response.json({
-    data: newProduct,
-  });
-};
+  // void - Elimina del archivo el objeto con el id buscado.
+  async deleteById(id) {
+    await this.db.delete(id)
+  }
+}
 
-// Método updateProd para actualizar un producto según el id en la tabla products de la DB.
-const updateProd = async (request, response) => {
-  const { id } = request.params;
-  const { title, thumbnail, price } = request.body;
-
-  let item = await DBService.get(tableName, id);
-
-  if (!item.length)
-    return response.status(404).json({
-      msgs: "Product not found!",
-    });
-
-  const data = {
-    title,
-    thumbnail,
-    price,
-  };
-
-  DBService.update(tableName, id, data);
-
-  item = await DBService.get(tableName, id);
-  response.json({
-    msg: "Product updated",
-    item,
-  });
-};
-
-// Método updateProd para borrar un producto según el id de la tabla products de la DB.
-const deleteProd = async (request, response) => {
-  const { id } = request.params;
-
-  DBService.delete(tableName, id);
-  response.json({
-    msg: "product deleted",
-  });
-};
+const myArticlesController = new Articles("products", "mysql");
 
 module.exports = {
-  getAllProds,
-  getProdById,
-  saveProd,
-  updateProd,
-  deleteProd,
+  controller: myArticlesController,
 };
