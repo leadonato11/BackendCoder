@@ -1,6 +1,6 @@
 const express = require("express");
-const { controller } = require("../controller/articles");
-const { sendToAll } = require("../services/socket");
+const { controller } = require("../../controller/articles");
+const { sendToAll } = require("../../services/socket");
 const router = express.Router();
 
 // GET '/api/productos' -> devuelve todos los productos.
@@ -24,18 +24,25 @@ router.get("/", async (request, response) => {
 // GET '/api/productos/:id' -> devuelve un producto según su id.
 
 router.get("/:id", async (request, response) => {
-  const { id } = request.params;
-  const article = await controller.getById(id);
+  try {
+    const { id } = request.params;
+    const article = await controller.getById(id);
 
-  if (!article) {
-    return response.status(404).json({
-      msg: "Producto no encontrado",
+    if (!article) {
+      return response.status(404).json({
+        msg: "Producto no encontrado",
+      });
+    }
+    response.json({
+      data: article,
+      message: "PETICIÓN GET PARA UN PRODUCTO POR ID",
+    });
+  } catch (error) {
+    response.status(500).json({
+      error: error.message,
+      stack: error.stack,
     });
   }
-  response.json({
-    data: article,
-    message: "PETICIÓN GET PARA UN PRODUCTO POR ID",
-  });
 });
 
 // POST '/api/productos' -> recibe y agrega un producto, y lo devuelve con su id asignado.
