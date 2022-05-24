@@ -12,13 +12,13 @@ class Chat {
       time: moment().format("DD-MM-YYYY HH:ss"),
       ...obj,
     };
-    const savedObject = await this.db.create(saveObject);
-    return savedObject;
+    const savedId = await this.db.create(saveObject)
+    const savedObject = await this.db.get(savedId);
+    return savedObject[0];
   }
 
   async getAll() {
     const messages = await this.db.get();
-    console.log(messages)
     return messages;
   }
 }

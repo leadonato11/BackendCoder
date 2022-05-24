@@ -24,9 +24,9 @@ class Articles {
 
   // Number - Recibe un objeto, lo guarda en el archivo, devuelve el id asignado.
   async save(obj) {
-    const savedObject = await this.db.create(obj);
-
-    return savedObject;
+    const savedId = await this.db.create(obj);
+    const savedObject = await this.db.get(savedId);
+    return savedObject[0];
   }
 
   // Object - Actualiza un producto.

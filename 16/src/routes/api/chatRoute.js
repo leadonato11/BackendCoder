@@ -8,7 +8,6 @@ const router = express.Router();
 router.get("/", async (request, response) => {
   try {
     const chatMessages = await controller.getAll();
-    console.log(chatMessages);
     response.json({
       data: chatMessages,
       message: "PETICIÓN GET A LOS PRODUCTOS DISPONIBLES",
@@ -38,8 +37,6 @@ router.post("/", async (request, response) => {
       time,
       message,
     };
-
-    console.log(chatPost);
 
     const newChat = await controller.save(chatPost);
 

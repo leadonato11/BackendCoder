@@ -109,6 +109,7 @@ btnSubmitMessage.addEventListener("click", () => {
     username: username.value,
     message: message.value,
   };
+  console.log(data)
 
   socket.emit("sendMessage", data);
 
